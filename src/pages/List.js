@@ -12,14 +12,13 @@ const List = () => {
   useEffect( async() => {
     setItems([]);
     setItems(await getList(entity));
-}, [entity])
-console.log(items)
-
+  }, [entity])
+  console.log(items);
   return (
     <div>
       {entity}
       <Menu />
-      <Body list={items}/>
+      <Body className='body' list={items} entity={entity} />
     </div>
   )
 }
