@@ -13,7 +13,6 @@ export const getList = async (path) => {
 
 
 export const getItem = async (path, index) => {
-  const data = '';
   const response = await fetch(`https://swapi.dev/api/${path}/${index}/`);
-   return data = await response.json();
+  return  await response.json();
 }

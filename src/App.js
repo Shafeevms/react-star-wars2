@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect, Route, Switch, useParams } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import List from "./pages/List";
 import ListItem from "./pages/ListItem";
 

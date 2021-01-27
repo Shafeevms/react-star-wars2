@@ -18,7 +18,7 @@ const List = () => {
     <div>
       {entity}
       <Menu />
-      <Body className='body' list={items} entity={entity} />
+      <Body className='body' entity={entity} list={items} />
     </div>
   )
 }

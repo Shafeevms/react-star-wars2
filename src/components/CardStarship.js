@@ -1,9 +1,10 @@
 import React from 'react';
 
 const CardStarship = ({item}) => {
+    
     return (
-        <>{item.name}</>
-    )
+        <h2>{item.name}</h2>
+    );
 }
 
 export default CardStarship;

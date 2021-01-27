@@ -1,11 +1,9 @@
 import React from 'react';
-import { getItem } from '../api';
  
 const CardPerson = ({item}) => {
     
-
     return (
-        <><h1>{item.name}</h1></>
+        <h2>{item.name}</h2>
     )
 }
 

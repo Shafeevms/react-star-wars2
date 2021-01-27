@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Route, Switch, useParams } from "react-router-dom";
-import { getItem } from "../api";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import CardPerson from "../components/CardPerson";
 import CardPlanet from "../components/CardPlanet";
 import CardStarship from "../components/CardStarship";
+import { getItem } from '../api';
 import Menu from "../components/Menu";
 
 const ListItem = () => {
   let { entity, id} = useParams();
-  console.log(entity);
-  const [item, setItem] = useState();
+  const [item, setItem] = useState('');
+  
   useEffect( async () => {
-    setItem([]);
+    setItem('');
     setItem(await getItem(entity, id));
+    console.log(item)
   }, [id]);
 
   return (
