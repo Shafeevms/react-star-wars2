@@ -10,11 +10,14 @@ function App() {
         <Route path="/:entity/:id">
           <ListItem />
         </Route>
-        <Route exact path="/:entity">
+        <Route exact path="/:entity/:page">
           <List />
         </Route>
+        <Route exact path="/:entity">
+          <Redirect to="/planets/?page=1" />
+        </Route>
         <Route path="/">
-          <Redirect to="/planets" />
+          <Redirect to="/planets/?page=1" />
         </Route>
       </Switch>
   );

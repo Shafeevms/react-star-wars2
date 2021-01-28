@@ -13,14 +13,13 @@ const ListItem = () => {
   useEffect( async () => {
     setItem('');
     setItem(await getItem(entity, id));
-    console.log(item)
   }, [id]);
 
   return (
     <div>
       {`${entity}:${id}`}
       <Menu />
-      {entity === 'planet' && <CardPlanet item={item} />}
+      {entity === 'planets' && <CardPlanet item={item} />}
       {entity === 'people' && <CardPerson item={item} />}
       {entity === 'starships' && <CardStarship item={item} />}
     </div>
