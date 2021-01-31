@@ -22,7 +22,7 @@ const List = () => {
       {entity}
       <Menu />
       <Body className='body' entity={entity} list={items.pages} />
-      <PagePagination list={items.meta}/>
+      <PagePagination list={items} />
     </div>
   )
 }

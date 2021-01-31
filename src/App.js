@@ -8,12 +8,12 @@ function App() {
   return (
       <Switch>
         <Route path="/:entity/:id">
+          <ListItem />
+        </Route>
+        <Route path="/:entity">
           <List />
         </Route>
-        {/* <Route exact path="/:entity">
-          <Redirect to="/planets/?page=1" />
-        </Route> */}
-        <Route path="/">
+        <Route exact path="/">
           <Redirect to="/planets/?page=1" />
         </Route>
       </Switch>
@@ -21,3 +21,4 @@ function App() {
 }
 
 export default App;
+

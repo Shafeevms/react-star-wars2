@@ -16,22 +16,14 @@
 //   return pagesData;
 // }
 
-export const getList = async (path) => {
+export const getList = async (path, page = 1) => {
   if (path === '/') return;
-  let pagesData = {
-    pages: 1,
-    meta:[]
+  const response = await fetch(`https://swapi.dev/api/${path}/?page=${page}`);
+  return {
+    pages: response.results,
+    quanttity: response.count
   };
-  const response = await fetch(`https://swapi.dev/api/${path}/`);
-  let data = await response.json();
-    for (let i = 1; data.next && i=== 50; i++) {
-      const response = await fetch(`https://swapi.dev/api/${path}/?page=${i}`);
-      pagesData.pages = i;
-      pagesData.meta.push(data.next)
-    }
-  return pagesData;
 }
-
 
 export const getItem = async (path, index) => {
   const response = await fetch(`https://swapi.dev/api/${path}/${index}/`);
