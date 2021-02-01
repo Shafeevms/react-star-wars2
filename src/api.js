@@ -19,9 +19,10 @@
 export const getList = async (path, page = 1) => {
   if (path === '/') return;
   const response = await fetch(`https://swapi.dev/api/${path}/?page=${page}`);
+  const data = await response.json();
   return {
-    pages: response.results,
-    quanttity: response.count
+    pages: data.results,
+    quantity: data.count
   };
 }
 

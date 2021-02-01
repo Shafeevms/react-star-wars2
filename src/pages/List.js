@@ -11,18 +11,16 @@ const List = () => {
   const [items, setItems] = useState({});
   
   useEffect( async() => {
-    console.log(entity, page);
     setItems({});
     setItems(await getList(entity, page));
-  }, [entity, page]);
+  }, [entity, page,]);
   
-  console.log(items);
   return (
     <div>
       {entity}
       <Menu />
       <Body className='body' entity={entity} list={items.pages} />
-      <PagePagination list={items} />
+      <PagePagination count={items.quantity} />
     </div>
   )
 }

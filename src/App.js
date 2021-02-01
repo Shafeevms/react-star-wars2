@@ -10,7 +10,7 @@ function App() {
         <Route path="/:entity/:id">
           <ListItem />
         </Route>
-        <Route path="/:entity">
+        <Route path="/:entity/">
           <List />
         </Route>
         <Route exact path="/">

@@ -1,8 +1,13 @@
 import React from 'react';
 import Pagination from 'react-bootstrap/Pagination';
-import { getList } from '../api';
+import { useParams } from 'react-router-dom';
 
-const PagePagination = () => {
+const PagePagination = ({ count }) => {
+
+    let { entity, page } = useParams();
+    
+    let currentPage = !page && 1;
+    console.log('Pagination: ', entity, page, count, currentPage );
     return (
     <Pagination>
         <Pagination.First />
