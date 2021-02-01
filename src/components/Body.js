@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 const Body = ({ list, entity }) => {
 
@@ -16,7 +17,7 @@ const Body = ({ list, entity }) => {
         >
           {listItem.name}
         </Link>}) 
-        : null }
+        : <Loader /> }
     </ul>
   )
 }
