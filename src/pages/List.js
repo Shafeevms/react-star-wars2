@@ -4,9 +4,11 @@ import { getList } from "../api";
 import PagePagination from '../components/PagePagination'
 import Body from "../components/Body";
 import Menu from "../components/Menu";
+import { useGetParams } from "../hooks/useGetParams";
 
 const List = () => {
-  let { entity, page } = useParams();
+  let { entity } = useParams();
+  const { page } = useGetParams();
   
   const [items, setItems] = useState({});
   

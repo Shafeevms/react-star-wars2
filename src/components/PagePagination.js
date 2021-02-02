@@ -1,30 +1,32 @@
 import React from 'react';
 import Pagination from 'react-bootstrap/Pagination';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useGetParams } from "../hooks/useGetParams";
+import PaginationItem from './PaginationItem';
 
 const PagePagination = ({ count }) => {
+    const { page } = useGetParams();
 
-    let { entity, page } = useParams();
-    
-    let currentPage = !page && 1;
-    console.log('Pagination: ', entity, page, count, currentPage );
+    let pageNumbers = Math.ceil(count / 10); 
+    let { entity } = useParams();
+
     return (
     <Pagination>
-        <Pagination.First />
-        <Pagination.Prev />
-        <Pagination.Item>{1}</Pagination.Item>
-        <Pagination.Ellipsis />
+        <PaginationItem to={`/${entity}?page=1`}>{"«"}</PaginationItem>
+        <PaginationItem to={`/${entity}?page=${page - 1}`}>{"<"}</PaginationItem>
+        {count && [...Array(pageNumbers).keys()].map((index) => (
+            <PaginationItem 
+                isActive={index + 1 === +page} 
+                to={`/${entity}?page=${index + 1}`} 
+                key={index}
+            >
+                {index + 1}
+            </PaginationItem>
+        ))}
 
-        <Pagination.Item>{10}</Pagination.Item>
-        <Pagination.Item>{11}</Pagination.Item>
-        <Pagination.Item active>{12}</Pagination.Item>
-        <Pagination.Item>{13}</Pagination.Item>
-        <Pagination.Item disabled>{14}</Pagination.Item>
-
-        <Pagination.Ellipsis />
-        <Pagination.Item>{20}</Pagination.Item>
-        <Pagination.Next />
-        <Pagination.Last />
+        {/* <Pagination.Ellipsis /> */}
+        <PaginationItem to={`/${entity}?page=${+page + 1}`}>{">"}</PaginationItem>
+        <PaginationItem to={`/${entity}?page=${pageNumbers}`}>{"»"}</PaginationItem>
     </Pagination>
     )
 }
