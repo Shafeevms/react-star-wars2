@@ -13,9 +13,14 @@ const PagePagination = ({ count }) => {
     return (
     <Pagination>
         <PaginationItem to={`/${entity}?page=1`}>{"«"}</PaginationItem>
-        <PaginationItem to={`/${entity}?page=${page - 1}`}>{"<"}</PaginationItem>
+        <PaginationItem 
+            isDisabled={+page === 1} 
+            to={`/${entity}?page=${page - 1}`}
+            >
+                {"<"}
+        </PaginationItem>
         {count && [...Array(pageNumbers).keys()].map((index) => (
-            <PaginationItem 
+            <PaginationItem
                 isActive={index + 1 === +page} 
                 to={`/${entity}?page=${index + 1}`} 
                 key={index}
@@ -25,7 +30,11 @@ const PagePagination = ({ count }) => {
         ))}
 
         {/* <Pagination.Ellipsis /> */}
-        <PaginationItem to={`/${entity}?page=${+page + 1}`}>{">"}</PaginationItem>
+        <PaginationItem
+            isDisabled={+page === pageNumbers} 
+            to={`/${entity}?page=${+page + 1}`}
+            >{">"}
+        </PaginationItem>
         <PaginationItem to={`/${entity}?page=${pageNumbers}`}>{"»"}</PaginationItem>
     </Pagination>
     )
