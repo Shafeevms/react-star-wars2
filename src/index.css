@@ -10,7 +10,7 @@
 .list {
   display: flex;
   flex-flow: column wrap;
-  height: 80vh;
+  height: 75vh;
 }
 
 .item {

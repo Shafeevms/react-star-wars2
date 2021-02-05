@@ -10,10 +10,13 @@ const ListItem = () => {
   let { entity, id} = useParams();
   const [item, setItem] = useState('');
   
-  useEffect( async () => {
-    setItem('');
-    setItem(await getItem(entity, id));
-  }, [id]);
+  useEffect( () => {
+    async function fetchData() {
+      setItem('');
+      setItem(await getItem(entity, id));
+    }
+    fetchData();
+  }, [id, entity]);
 
   return (
     <div>

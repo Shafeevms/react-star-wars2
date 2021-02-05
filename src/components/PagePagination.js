@@ -1,6 +1,6 @@
 import React from 'react';
 import Pagination from 'react-bootstrap/Pagination';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useGetParams } from "../hooks/useGetParams";
 import PaginationItem from './PaginationItem';
 
